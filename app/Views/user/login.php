@@ -4,59 +4,40 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>CODEIGNITER 4 TRAINING</title>
+    <title>AMS</title>
+    <link href="<?= base_url()?>logo.png" rel="icon">
     <link rel="stylesheet" href="<?= base_url()?>public/assets/bootstrap/css/bootstrap.min.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-light navbar-expand-md bg-info">
-        <div class="container-fluid"><a class="navbar-brand" href="#"><strong>CodeIgniter 4 Training</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav">
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="container d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center">
-        <div>
-            <h1 class="text-center mt-3">Login</h1>
-            <div class="card" style="width: 50rem;">
-                <div class="card-body">
-                    <?= validation_list_errors() ?>
-                    <form action="<?= base_url()?>login" method="POST">
-                        <div>
 
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group m-3">
-                                        <label class="form-label">Username</label>
-                                        <input type="text" class="form-control" name="username" value="<?= set_value('username') ?>" autofocus>
-                                        <p class="text-danger"><?= validation_show_error('username')?></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group m-3">
-                                        <label class="form-label">Password</label>
-                                        <input type="password" class="form-control" name="password" value="<?= set_value('password') ?>">
-                                        <p class="text-danger"><?= validation_show_error('password')?></p>
-                                    </div>
-                                </div>>
-                            </div>
-                        </div>
-                        <div class="d-lg-flex d-xl-flex justify-content-lg-center justify-content-xl-center align-items-xl-center mt-3">
-                            <button class="btn btn-primary text-bg-primary m-1" type="submit">Login</button>
-                        </div>                        
-                    </form>
-
+<div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
+    <div class="py-5" style="width: 30rem;">
+        <div class="card-body text-center">
+            <h1 class="mb-4">AMS</h1>
+            <?= validation_list_errors() ?>
+            <form action="<?= base_url() ?>login" method="POST">
+                <div class="form-group mb-3">
+                    <label class="form-label">Username</label>
+                    <input type="text" class="form-control" name="username" value="<?= set_value('username') ?>" autofocus>
+                    <p class="text-danger"><?= validation_show_error('username') ?></p>
                 </div>
-            </div>
+                <div class="form-group mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" value="<?= set_value('password') ?>">
+                    <p class="text-danger"><?= validation_show_error('password') ?></p>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-primary" type="submit">Login</button>
+                </div>
+            </form>
         </div>
     </div>
+    <footer class="mt-5 text-center">
+        <p>&copy; <?= date('Y') ?> Academic Management System. All Rights Reserved.</p>
+    </footer>
+</div>
+
     <script src="<?= base_url() ?>public/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 

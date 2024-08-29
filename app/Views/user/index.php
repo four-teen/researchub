@@ -4,98 +4,124 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>CODEIGNITER 4 TRAINING</title>
+    <title>AMS</title>
+    <link href="<?= base_url()?>logo.png" rel="icon">
     <link rel="stylesheet" href="public/assets/bootstrap/css/bootstrap.min.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-light navbar-expand-md bg-info">
-        <div class="container-fluid"><a class="navbar-brand" href="#"><strong>CodeIgniter 4 Training</strong></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav">
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">AMS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Manage Accounts</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Management
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Manage Accounts</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <img src="<?= base_url() ?>user.jpg" alt="User Image" class="rounded-circle" width="40" height="40">
+        <span class="ms-2"><?= strtoupper(session()->get('firstname')) ?></span>
+        <div class="dropdown ms-3">
+          <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-caret-down-fill"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="<?= base_url('logout') ?>">Logout</a></li>
+          </ul>
         </div>
-    </nav>
-    <div class="container">
-        <div>
-            <h1 class="text-center mt-3">CRUD OPERATION</h1>
-            <h4>Welcome <?= session() -> get('firstname') ?></h4>
-            <a href="<?= base_url('logout') ?>">Logout</a>
-
-                <?php 
-                    $x = session()->get('success');
-
-                    if($x){
-                        echo 
-                        ''?>
-                            <div class="alert alert-success">
-                                <?= $x ?>
-                            </div>
-                        <?php echo'';
-                    }
-
-
-// if ($x) { // Check if there is a success message
-//     echo "<script>
-//         document.addEventListener('DOMContentLoaded', function() {
-//             get_mess('{$x}');
-//         });
-//     </script>";
-// }
-                 ?>
-
-
-
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title mb-3">List of Users</h4>
-                    <div class="table-responsive table table-bordered">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>User ID</th>
-                                    <th>Last Name</th>
-                                    <th>Middle Name</th>
-                                    <th>First Name</th>
-                                    <th>Username</th>
-                                    <th>Date Registered</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach($Users as $user):
-                                    echo'
-                                <tr>
-                                    <td width="1%" class="text-end">'.$user-> userid.'.</td>
-                                    <td>'.strtoupper($user->lastname).'</td>
-                                    <td>'.strtoupper($user->middlename).'</td>
-                                    <td>'.strtoupper($user->firstname).'</td>
-                                    <td>'.strtoupper($user->username).'</td>
-                                    <td>'.date('F d, Y h:i', strtotime($user->entrydate)).'</td>
-                                    <td style="white-space:nowrap" width="1%">
-                                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                        <a type="button" href="'.base_url().'user/edit/'.$user->userid.'" class="btn btn-danger">Edit</a>
-                                        <a type="button" href="'.base_url().'user/delete/'.$user->userid.'" class="btn btn-warning">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ';
-                                endforeach ;?>
-
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="d-lg-flex d-xl-flex justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center">
-                    <a href="<?= base_url('user/add') ?>" class="btn btn-primary">Add User</a>                        
-                    </div>
-                </div>
-            </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 py-3">
+            <div class="card h-100">
+              <img src="<?= base_url() ?>img1.png" class="card-img-top" alt="..." width="90px;">
+              <div class="card-body">
+                <h5 class="card-title">Manage Users</h5>
+                <p class="card-text">Manage user profiles, and update information.
+              </div>
+              <div class="card-body">
+                <a class="btn btn-success" href="<?= base_url('user/userslist') ?>" class="card-link">Manage</a>
+              </div>
+            </div>            
+        </div>
+        <div class="col-lg-3 py-3">
+            <div class="card h-100">
+              <img src="<?= base_url() ?>img2.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Manage Courses</h5>
+                <p class="card-text">Manage academic courses and other information related to subjects.
+              </div>
+              <div class="card-body">
+                <a class="btn btn-success" href="<?= base_url('course/courseslist') ?>" class="card-link">Manage</a>
+              </div>
+            </div>            
+        </div>
+        <div class="col-lg-3 py-3">
+            <div class="card h-100">
+              <img src="<?= base_url() ?>img3.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Manage Subjects</h5>
+                <p class="card-text">Manage academic subjects and other information related to subjects.
+              </div>
+              <div class="card-body">
+                <a class="btn btn-success" href="<?= base_url('subject/subjectslist') ?>" class="card-link">Manage</a>
+              </div>
+            </div>            
+        </div>
+        <div class="col-lg-3 py-3">
+            <div class="card h-100">
+              <img src="<?= base_url() ?>img5.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Manage Prospectus</h5>
+                <p class="card-text">Manage students prospectus and other information related to subjects.
+              </div>
+              <div class="card-body">
+                <a class="btn btn-success" href="<?= base_url('prospectus/prospectuslist') ?>" class="card-link">Manage</a>
+              </div>
+            </div>            
+        </div>
+        <div class="col-lg-3 py-3">
+            <div class="card h-100">
+              <img src="<?= base_url() ?>img4.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Manage Students</h5>
+                <p class="card-text">Manage students and other information related to subjects.
+              </div>
+              <div class="card-body">
+                <a class="btn btn-success" href="<?= base_url('prospectus/prospectuslist') ?>" class="card-link">Manage</a>
+              </div>
+            </div>            
         </div>
     </div>
+</div>
+
     <script src="public/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
